@@ -1,0 +1,104 @@
+﻿@model PI.Web.Models.InterventionIndexViewModel
+@{
+    ViewBag.Title = "Interventions";
+}
+
+
+<div class="button-container">
+    <a class="create-dialog-trigger" href="dialog">Create a new intervention</a>
+</div>
+
+<div id="intervention-edit-dialog" class="dialog-contents"></div>
+
+<br/><br/>
+
+<table id="myDataTable" class="display">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>NHI</th>
+            <th>Intervention Details</th>
+            <th>Ward</th>
+            <th>Pharmacist</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody> 
+    </tbody>
+</table>
+
+@section scripts
+{
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#myDataTable').dataTable({
+                "jQueryUI": true,
+                "serverSide": true,
+                "ajax": "@Url.Action("InterventionRecords")",
+                "processing": true,
+                //"pagingType": "full_numbers",
+                "order": [[0, "desc"]],
+                "columns": [
+                    {
+                        "name": "Date", "data": "Date",
+                        "render": function (data, type, full, meta) {
+                            var dateLink = '<div class="editable-intervention clickable" onclick="editItem(' + full.Id + ')" >' + full.Date + '</div>';
+                            return dateLink;
+                        }
+                    },
+                    { "name": "Nhi", "data": "Nhi" },
+                    {
+                        "name": "Details",
+                        "orderable": false,
+                        "render": function (data, type, full, meta) {
+                            var intType = '<div class="details-category-and-type">' + full.CategoryName + ' - ' + full.InterventionType + '</div>';
+                            var med1 = '<div class="details-field"><span class="details-field-label">Medication 1:</span><span class="details-field-value">' + full.Medication1 + '</span></div>';
+                            var med2 = full.Medication2 ? '<div class="details-field"><span class="details-field-label">Medication 2:</span><span class="details-field-value">' + full.Medication2 + '</span></div>' : '';
+                            var dose = '<div class="details-field dose-recieved-' + full.DoseRecieved + '"><span class="details-field-label">Dose recieved:</span><span class="details-field-value">' + full.DoseRecieved + '</span></div>';
+                            var outcome = '<div class="details-field"><span class="details-field-label">Outcome:</span><span class="details-field-value">' + full.Outcome + '</span></div>';
+                            var stage = '<div class="details-field"><span class="details-field-label">Stage:</span><span class="details-field-value">' + full.Stage + '</span></div>';
+                            var staffInvolved = '<div class="details-field"><span class="details-field-label">Staff Involved:</span><span class="details-field-value">' + full.StaffInvolved + '</span></div>';
+                            var timeTaken = '<div class="details-field"><span class="details-field-label">TimeTaken:</span><span class="details-field-value">' + full.TimeTaken + '</span></div>';
+                            return '<div class="table-details">' + intType + '<div class="column1">' + med1 + med2 + dose + '</div>' + '<div class="column2">' + outcome + stage + staffInvolved + timeTaken + '</div>' + '</div>';
+                        }
+                    },
+                    { "name": "Ward", "data": "WardName" },
+                    { "name": "Pharmacist", "data": "PharmacistName" },
+                    { "name": "Grade", "data": "Grade" }
+                ]
+            });
+            
+        });
+
+
+        function editItem(id) {
+            $('#intervention-edit-dialog').load("@Url.Action("Edit")?id=" + id, function() {
+                $(this).dialog('open');
+            });
+            return false;
+        }
+
+        $(document).ready(function() {
+            
+            // hook up trigger to open the create intervention dialog - uses edit but passes no id
+            $('.create-dialog-trigger').on('click', function(event) {
+                $('#intervention-edit-dialog').load("@Url.Action("Edit")", function() {
+                    $(this).dialog('open');
+                });
+                return false;
+            });
+
+            // create our edit/create dialog, but do not open it yet
+            $('#intervention-edit-dialog').dialog({
+                autoOpen: false,
+                modal: true,
+                width: 800,
+                title: "Interventions"
+            });
+
+        });
+
+    </script>
+}

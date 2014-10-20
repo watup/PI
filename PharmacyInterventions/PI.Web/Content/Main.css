@@ -1,0 +1,409 @@
+﻿#body {
+    margin: 8px;
+}
+body {
+    font-family: Arial,sans-serif;
+    font-size: 1em;
+    margin: 0px;
+}
+
+h1 {
+    margin-top: 0.25em;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+
+  .sortable  li { 
+      margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em;
+      border: 1px solid #cccccc;
+  }
+  
+
+
+.text-page {
+    margin: 0 15px;
+    padding: 15px;
+    background-color: #EFF8FF;
+    border-radius: 15px;
+}
+
+.input-validation-error {
+    border: 1px solid #cc0000;
+}
+
+.ui-state-highlight, .ui-state-error {
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+
+.button-container {
+    width: 100%;
+    text-align: center;
+}
+
+/************************** ward & pharmacist list/creation **********************************/
+
+#wardList, #pharmacistList {
+    border: 1px solid #aed0ea;
+    padding: 10px 5px;
+    width: 500px;
+    background-color: #fff;
+}
+.ward-name,.pharmacist-name {
+    width: 330px;
+    display: inline-block;
+}
+.active-toggle {
+    margin-left: 20px;
+}
+.active-toggle span {
+    padding: 0px 15px !important;
+}
+
+.create-ward,.create-pharmacist {
+    width: 550px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/**************************** home/main  ***********************************/
+.home-page {
+    margin: 0;
+}
+        .container {
+            font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        .nameContainer {
+            position: absolute;
+            left: 30px;
+            color: #686868;
+            top: 300px;
+        }
+        .imageContainer {
+            top: 200px;
+            position: absolute;
+        }
+        .name {
+            font-size: 50px;
+            background-color: rgb(255, 60, 60);
+            margin-left: 0px;
+            margin-bottom: 20px;
+            width: 60px;
+            text-align: center;
+            color: #fff;
+            padding-bottom: 10px;
+        }
+        .nameFull1 {
+            font-size: 15px;
+        }
+        .nameFull2 {
+            padding-left: 15px;
+            font-size: 15px;
+        }
+        #fullPie {
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            position: absolute;
+        }
+        #pieSlice1, #pieSlice2, #pieSlice3 {
+            position: absolute;
+            display:none;
+        } 
+        
+        .sectionContainer {
+            position: absolute;
+            font-size: 25px;
+        }
+        .sectionDivider {
+            display: inline-block;
+            width: 3px;
+            background-color: #949494;
+            vertical-align: top;
+            height: 100px;
+        }
+        .sectionName {
+            display: inline-block;
+            background-color: #949494;
+            color: #fff;
+            vertical-align: top;
+            margin-top: 10px;
+            padding-left: 10px;
+            width: 150px;
+        }
+        .sectionLinks {
+            display: inline-block;
+            padding-top: 10px;
+            color: #949494;
+        }
+        .sectionLink {
+            margin-bottom: 20px;
+        }
+
+        .sectionContainer:hover .sectionName {
+            background-color: rgb(255, 60, 60);
+            color: #FDFDFD;
+        }
+        .sectionContainer:hover .sectionDivider {
+            background-color: rgb(255, 60, 60);
+        }
+        .sectionContainer:hover .sectionLinks {
+            /*color: #F6D55D;*/
+        }
+        .sectionLink a:active,.sectionLink a:visited,.sectionLink a:link {
+            color: #949494;
+            text-decoration: none;
+        }
+        .sectionLink a:hover {
+            text-decoration: underline;
+            color: #686868;
+            /*color: #F6D55D;*/
+        }
+        .dataSectionContainer {
+            left: 310px;
+            width: 400px;
+            top: 250px;
+        }
+        .dataSectionContainer .sectionName {
+        }
+        .dataSectionContainer .sectionDivider,.adminSectionContainer .sectionDivider {
+            height: 150px;
+        }
+        .helpSectionContainer {
+            left: 130px;
+            width: 260px;
+            top: 110px;
+        }
+        .adminSectionContainer {
+            left: 280px;
+            width: 270px;
+            top: 480px;
+        }
+
+
+
+/**************************** tables/lists ***********************************/
+.dataTables_scroll
+{
+    overflow:auto;
+}
+
+.table-details {
+    font-size: 10px;
+}
+
+.table-details .column1 {
+    float: left;
+}
+.table-details .column2 {
+    float: right;
+}
+.details-field-label {
+    display: inline-block;
+    width: 80px;
+}
+.long-field-labels .details-field-label{
+    width: 200px;
+}
+#myDataTable td {
+    vertical-align: top;
+}
+
+.details-category-and-type {
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+}
+
+.dose-recieved-true {
+    color: red;
+}
+
+.editable-intervention,.editable-contribution,.editable-kpi {
+    text-decoration: underline;
+}
+
+/**************************** page/header ***********************************/
+
+.header-container {
+    height: 100px;
+}
+
+.header-breadcrumbs {
+    float: right;
+    font-size: 30px;
+}
+.header-breadcrumb-home {
+display: inline-block;
+color: rgb(255, 255, 255);
+padding: 5px 20px 0 20px;
+font-size: 60px;
+vertical-align: middle;
+background-color: rgb(255, 60, 60);
+line-height: 60px;
+margin-top: 10px;
+}
+.home-page-link {
+    cursor: pointer;
+}
+.header-breadcrumb-separator {
+    display: inline-block;
+    color: rgb(255, 60, 60);
+    margin-top: -10px;
+    font-size: 60px;
+    vertical-align: middle;
+    display: none;
+}
+.header-breadcrumb-page {
+    display: inline-block;
+    padding: 20px 30px 10px 10px;
+    vertical-align: middle;
+}
+
+
+
+
+
+/********************************** dialog styles *****************************************/
+
+.nhi-entry {
+    width: 100px;
+}
+.nhi-validation-error {
+    display: none;
+}
+
+.dialog-buttons {
+    text-align: right;
+    margin-top: 10px;
+}
+.dialog-buttons input, .make-me-a-button {
+    background-color: #ffffff;
+}
+
+.dialog-buttons .close-dialog {
+    padding-right: 10px;
+}
+
+.dialog-column {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 3px;
+    width: 200px;
+}
+.dialog-column-big {
+    width: 330px;
+}
+
+.dialog-column2 {
+    border-left: 2px solid #cccccc;
+    border-right: 2px solid #cccccc;
+    padding-right: 10px;
+}
+.dialog-column2-big {
+    border-left: 2px solid #cccccc;
+    padding-right: 10px;
+    width: 340px;
+}
+.dialog-column2, .dialog-column3, .dialog-column2-big {
+    padding-left: 10px;
+}
+.dialog-column3 {
+    width: 320px;
+}
+.dialog-column1 select,.dialog-column2 select {
+    width: 195px;
+}
+
+.dialog-column2-big .editor-label,.dialog-column2-big .editor-field {
+    float: left;
+}
+.dialog-column2-big input {
+    width: 30px;
+}
+.dialog-column2-big .editor-label {
+    clear: left;
+    width: 290px;
+    padding-top: 8px;
+}
+
+.intervention-details-input, .contribution-details-input, .kpi-details-input {
+    width: 300px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+}
+
+.grade-container {
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.grade-container label {
+    margin-right: 5px;
+}
+.show-grade-info-trigger {
+    margin-right: 5px;
+}
+.grade-setter {
+    padding: 10px 15px;
+    background: #4479BA;
+    color: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+.grade-setter:hover, .grade-setter:focus {
+    background: #356094;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+.grade-setter:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #2E5481;
+    border: solid 1px #203E5F;
+}
+.grade-setter-active {
+    background: #cc0000 !important;
+}
+
+.grade-description {
+    margin-top: 15px;
+    font-size: 12px;
+}
+.grade-container .ui-icon-info {
+    display: inline-block;
+}
+.grade-info {
+        z-index: 10;
+        position: absolute;
+        text-align: left;
+        background-color: #DADCDE;
+        padding: 5px;
+        font-size: 12px;
+    width: 400px;
+}
+.grade-example {
+    padding-bottom: 5px;
+}
+.grade-example-title {
+    font-weight: bold;
+}

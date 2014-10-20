@@ -1,0 +1,237 @@
+﻿@using System.Web.Configuration
+@using PI.Web
+@using PI.Web.Lookups
+@model PI.Web.Models.ContributionViewModel
+
+@{
+    //Layout = "../Shared/PopupLayout.cshtml";
+    Layout = null;
+}
+
+
+        <div>
+            @if (Model.Response != null && Model.Response.UpdatedContribution != null)
+            {
+                <div class='ui-state-highlight ui-corner-all'>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin-right:.3em;"></span>
+                    <span>Contribution for <b>@Model.Response.UpdatedContribution.Nhi</b> at @Model.Response.UpdatedContribution.Date.ToString("dd/MM/yyyy HH:mm") was @(Model.Response.WasNew ? "created" : "edited").</span>
+                </div>
+                if (!Model.Response.CreatingAnother)
+                {
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog make-me-a-button" title="Close this dialog">Close this window</a>
+                    </div>
+                }
+            }
+        </div>
+        @if (Model.Response == null || Model.Response.UpdatedContribution == null || Model.Response.CreatingAnother)
+        {
+         
+            <div>
+                @using (Html.BeginForm("Edit", "Contribution", FormMethod.Post))
+                {
+                    @Html.HiddenFor(i => i.Contribution.Id)
+                    @Html.Hidden("SubmissionType", (int)SubmissionType.Save)
+                    <div>
+                        @{
+                    if (!Model.IsValid)
+                    {
+                                <div class="ui-widget">
+                                    <div class="ui-state-error ui-corner-all">
+                                        @Html.ValidationSummary(false)
+                                    </div>
+                                </div>
+                    }
+                        }
+                    
+                        <div class="dialog-column dialog-column1">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.Nhi)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(i => i.Contribution.Nhi, new { @class = "nhi-entry" })
+                                <span class="ui-widget nhi-validation-error has-tool-tip" title="You can continue, but NHI number is invalid" >
+                                    <span class="ui-state-error ui-corner-all">Invalid NHI</span>
+                                </span>
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.Date)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Contribution.Date", Model.Contribution.Date.ToString("dd/MM/yyyy HH:mm"))
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.WardId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.WardId, Model.Wards, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.PharmacistId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.PharmacistId, Model.Pharmacists, "Select One")
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-column dialog-column2">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.MedicationId1)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.MedicationId1, Model.Medications, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.MedicationId2)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.MedicationId2, Model.Medications, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.ContributionTypeId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.ContributionTypeId, new SelectList(Model.ContributionTypes, "Id", "Name"), new { @class = "contribution-id-type-dropdown" })
+
+                            </div>
+                
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.OutcomeId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.OutcomeId, Model.Outcomes, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.StageId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.StageId, Model.Stages, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.StaffInvolvedId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.StaffInvolvedId, Model.StaffTypes, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.TimeFrameId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Contribution.TimeFrameId, Model.TimeFrames, "Select One")
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-column dialog-column3">
+                        
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Contribution.Details)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(i => i.Contribution.Details, new { @class = "contribution-details-input" })
+                            </div>
+
+                        </div>
+                    
+
+
+
+                
+
+
+                    </div>
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog" title="Close this dialog">Close</a>
+                        @{
+                                    int saveType = (int)SubmissionType.Save;
+                                    int saveAndAnotherType = (int)SubmissionType.SaveAndAnotherForPatient;
+                        }
+                        <input type="button" id="save" name="save" value ="Save"  onclick="SubmitForm(this, @saveType)" class="make-me-a-button" />
+                        <input type="button" id="saveAndAnother" name="saveAndAnother" value ="Save & another for NHI" title="Save this record and create another for the same patient" onclick="SubmitForm(this, @saveAndAnotherType)" class="make-me-a-button has-tool-tip" />
+                    
+                    </div>
+                }
+            </div>
+       
+        }
+
+        <script type="text/javascript">
+
+            function SubmitForm(btnClicked, submissionType) {
+                $('#SubmissionType').val(submissionType);
+                DoAjaxPost(btnClicked);
+            }
+            
+            $(document).ready(function () {
+
+                TurnJunkIntoButtons();
+
+                GenerateToolTips();
+                
+                $('.close-dialog').on('click', function (event) {
+                    $(this).closest('.ui-dialog-content').dialog('close');
+                    event.preventDefault();
+                    var $lmTable = $("#myDataTable").dataTable({ bRetrieve: true });
+                    $lmTable.fnDraw();
+                });
+                
+                // when the intervention type category changes then change the available intervention types
+                $('.intervention-type-categories').change(function () {
+                    PopulateInterventionTypeDropDown();
+                });
+
+                // on load populate the type drop down
+                //PopulateInterventionTypeDropDown();
+
+                // add datetime picker
+                $('#Contribution_Date').datetimepicker();
+                
+                $(".nhi-entry").focusout(function () {
+                    ValidateNhiNumber();
+                });
+                ValidateNhiNumber();
+                
+            });
+
+            function ValidateNhiNumber() {
+                $('.nhi-validation-error').hide();
+
+                var nhiNumber = $(".nhi-entry").val();
+
+                if (nhiNumber && nhiNumber != "") {
+                    $.ajax({
+                        type: "GET",
+                        url: "@Url.Action("ValidNhi","Ajax")",
+                            data: { nhi: nhiNumber },
+                            error: function (xhr, status, error) {
+                                //do something about the error  
+                                alert("Attempting to validate nhi: " + error);
+                            },
+                            success: function (response) {
+                                if (!response.valid) {
+                                    $('.nhi-validation-error').css('display', 'inline-block');
+                                }
+                            }
+                        });
+                    }
+            }
+
+            // populates the intervention type dropdown based on the currently selected intervention type category
+            function PopulateInterventionTypeDropDown() {
+                $('.intervention-type-dropdown').hide();
+                var currentCategoryId = $('.intervention-type-categories').val();
+                //console.log(currentCategoryId);
+                //$('#InterventionTypeCategory' + currentCategoryId).show();
+
+                $('.intervention-id-type-dropdown').html($('#InterventionTypeCategory' + currentCategoryId).html());
+            }
+
+
+
+        </script>
+

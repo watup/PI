@@ -1,0 +1,137 @@
+﻿@model PI.Web.Models.WardIndexViewModel
+
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Index", "Ward", FormMethod.Post))
+{
+
+    <div class="create-ward">
+        @{
+            if (Model.NewWard != null)
+            {
+                <div class="ui-widget">
+                    <div class="ui-state-error ui-corner-all">
+                        @Html.ValidationSummary(false)
+                    </div>
+                </div>
+            }
+        }
+        Create a new ward:
+        @Html.TextBoxFor(m => m.NewWard.Name)
+        <input type="button" name="create" value="Create ward" class="make-me-a-button"  onclick="DoAjaxPost(this)"/>
+    </div>
+    <div class="ward-list">
+        <span>Ward List</span>
+        <ul id="wardList" class="sortable ui-corner-all">
+            @foreach (var ward in Model.Wards.OrderBy(w => w.DisplayOrder))
+            {
+                var label = ward.IsActive ? "active" : "inactive";
+                <li data-WardId="@ward.Id" class=" ui-corner-all">
+                    <a href="#" data-type="text" data-pk="@ward.Id" class="ward-name">@ward.Name</a>
+                    <span class="ward-isactive">@Html.CheckBox("isactive", ward.IsActive, new {@class = "make-me-a-button ", id = "check" + ward.Id})<label class="active-toggle" for="check@(ward.Id)">@label</label></span>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.active-toggle').on('click', function () {
+            if ($(this).children('span').text() == 'inactive') {
+                $(this).children('span').text('active');
+            } else {
+                $(this).children('span').text('inactive');
+            }
+            var wardId = $(this).closest('li').data('wardid');
+            UpdateWard(wardId);
+        });
+
+        $('#wardList').sortable({
+            update: function (event, ui) {
+                UpdateWard(ui.item.data('wardid'), ui.item.index());
+            }
+        });
+
+        $('.ward-name').editable({
+            unsavedclass: "",
+            success: function (response, newValue) {
+                var wardItem = $(this).closest('li');
+                var wardId = $(wardItem).data('wardid');
+
+                UpdateWard(wardId, null, newValue);
+
+                response = "asdfasdf";
+            },
+            validate: function (value) {
+                if ($.trim(value) == '') {
+                    return 'This field is required';
+                }
+                if (value.length > 50) {
+                    return 'The name is too long';
+                }
+            }
+        });
+    });
+
+    function UpdateWard(wardId, newIndex, newName) {
+        // get ward details out of the htmlllll
+        var domWard = $('li[data-WardId=' + wardId + ']');
+        var wardName = $(domWard).children('.ward-name').text();
+        if (newName)
+            wardName = newName;
+        // this is a bit stupid, but checkbox does not seem to be changing value?
+        var isActive = $(domWard).children('.ward-isactive').find('.ui-button-text').text() == 'active' ? true : false;
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("UpdateWard")",
+            data: { wardId: wardId, wardName: wardName, isActive: isActive, newIndex: newIndex },
+            error: function (xhr, status, error) {
+                //do something about the error  
+                // TODO make me better please!
+                alert("Attempting to update ward: " + error);
+            },
+            success: function (response) {
+                if (!response.success) {
+                    // todo display the problem
+                    alert('there was a problem and kelvin needs to make this better');
+                }
+            }
+        });
+    }
+
+    // method for submitting form contained within dialog window
+    // and placing resulting view back into dialog window
+    function DoAjaxPost(btnClicked) {
+        var $form = $(btnClicked).parents('form');
+        var $dialog = $(btnClicked).parents('.dialog-contents, .form-contents');
+        console.log($dialog.html());
+
+        $.ajax({
+            type: "POST",
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            error: function (xhr, status, error) {
+                //do something about the error  
+                alert(error);
+            },
+            success: function (response) {
+                // put the response into the dialog
+                $dialog.html(response);
+                TurnJunkIntoButtons();
+            }
+        });
+
+        return false; // if it's a link to prevent post
+
+    }
+
+</script>

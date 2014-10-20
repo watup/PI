@@ -1,0 +1,1284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PharmacyInterventionsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PharmacyInterventionsModelStoreContainer">
+          <EntitySet Name="Contribution" EntityType="PharmacyInterventionsModel.Store.Contribution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContributionType" EntityType="PharmacyInterventionsModel.Store.ContributionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventionGrade" EntityType="PharmacyInterventionsModel.Store.InterventionGrade" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Interventions" EntityType="PharmacyInterventionsModel.Store.Interventions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventionType" EntityType="PharmacyInterventionsModel.Store.InterventionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterventionTypeCategory" EntityType="PharmacyInterventionsModel.Store.InterventionTypeCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kpi" EntityType="PharmacyInterventionsModel.Store.Kpi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Medications" EntityType="PharmacyInterventionsModel.Store.Medications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Outcomes" EntityType="PharmacyInterventionsModel.Store.Outcomes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pharmacists" EntityType="PharmacyInterventionsModel.Store.Pharmacists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffTypes" EntityType="PharmacyInterventionsModel.Store.StaffTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Stages" EntityType="PharmacyInterventionsModel.Store.Stages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TimeFrames" EntityType="PharmacyInterventionsModel.Store.TimeFrames" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Wards" EntityType="PharmacyInterventionsModel.Store.Wards" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Contribution_ContributionType" Association="PharmacyInterventionsModel.Store.FK_Contribution_ContributionType">
+            <End Role="ContributionType" EntitySet="ContributionType" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Medications" Association="PharmacyInterventionsModel.Store.FK_Contribution_Medications">
+            <End Role="Medications" EntitySet="Medications" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Medications1" Association="PharmacyInterventionsModel.Store.FK_Contribution_Medications1">
+            <End Role="Medications" EntitySet="Medications" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Outcomes" Association="PharmacyInterventionsModel.Store.FK_Contribution_Outcomes">
+            <End Role="Outcomes" EntitySet="Outcomes" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Pharmacists" Association="PharmacyInterventionsModel.Store.FK_Contribution_Pharmacists">
+            <End Role="Pharmacists" EntitySet="Pharmacists" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_StaffTypes" Association="PharmacyInterventionsModel.Store.FK_Contribution_StaffTypes">
+            <End Role="StaffTypes" EntitySet="StaffTypes" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Stages" Association="PharmacyInterventionsModel.Store.FK_Contribution_Stages">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_TimeFrames" Association="PharmacyInterventionsModel.Store.FK_Contribution_TimeFrames">
+            <End Role="TimeFrames" EntitySet="TimeFrames" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Wards" Association="PharmacyInterventionsModel.Store.FK_Contribution_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Contribution" EntitySet="Contribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_InterventionGrade" Association="PharmacyInterventionsModel.Store.FK_Interventions_InterventionGrade">
+            <End Role="InterventionGrade" EntitySet="InterventionGrade" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_InterventionType" Association="PharmacyInterventionsModel.Store.FK_Interventions_InterventionType">
+            <End Role="InterventionType" EntitySet="InterventionType" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Outcomes" Association="PharmacyInterventionsModel.Store.FK_Interventions_Outcomes">
+            <End Role="Outcomes" EntitySet="Outcomes" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Pharmacists" Association="PharmacyInterventionsModel.Store.FK_Interventions_Pharmacists">
+            <End Role="Pharmacists" EntitySet="Pharmacists" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_StaffTypes" Association="PharmacyInterventionsModel.Store.FK_Interventions_StaffTypes">
+            <End Role="StaffTypes" EntitySet="StaffTypes" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Stages" Association="PharmacyInterventionsModel.Store.FK_Interventions_Stages">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_TimeFrames" Association="PharmacyInterventionsModel.Store.FK_Interventions_TimeFrames">
+            <End Role="TimeFrames" EntitySet="TimeFrames" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Wards" Association="PharmacyInterventionsModel.Store.FK_Interventions_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions1_Medications" Association="PharmacyInterventionsModel.Store.FK_Interventions1_Medications">
+            <End Role="Medications" EntitySet="Medications" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions2_Medications" Association="PharmacyInterventionsModel.Store.FK_Interventions2_Medications">
+            <End Role="Medications" EntitySet="Medications" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterventionType_InterventionTypeCategory1" Association="PharmacyInterventionsModel.Store.FK_InterventionType_InterventionTypeCategory1">
+            <End Role="InterventionTypeCategory" EntitySet="InterventionTypeCategory" />
+            <End Role="InterventionType" EntitySet="InterventionType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kpi_Pharmacists" Association="PharmacyInterventionsModel.Store.FK_Kpi_Pharmacists">
+            <End Role="Pharmacists" EntitySet="Pharmacists" />
+            <End Role="Kpi" EntitySet="Kpi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kpi_Wards" Association="PharmacyInterventionsModel.Store.FK_Kpi_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Kpi" EntitySet="Kpi" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nhi" Type="varchar" Nullable="false" MaxLength="7" />
+          <Property Name="WardId" Type="int" Nullable="false" />
+          <Property Name="PharmacistId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="StaffInvolvedId" Type="int" Nullable="false" />
+          <Property Name="MedicationId1" Type="int" Nullable="false" />
+          <Property Name="MedicationId2" Type="int" />
+          <Property Name="OutcomeId" Type="int" Nullable="false" />
+          <Property Name="StageId" Type="int" Nullable="false" />
+          <Property Name="TimeFrameId" Type="int" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" />
+          <Property Name="ContributionTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContributionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventionGrade">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Example" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Interventions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nhi" Type="varchar" Nullable="false" MaxLength="7" />
+          <Property Name="WardId" Type="int" Nullable="false" />
+          <Property Name="PharmacistId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" />
+          <Property Name="InterventionGradeValue" Type="int" Nullable="false" />
+          <Property Name="DoseReceived" Type="bit" Nullable="false" />
+          <Property Name="MedicationId1" Type="int" Nullable="false" />
+          <Property Name="MedicationId2" Type="int" />
+          <Property Name="InterventionTypeId" Type="int" Nullable="false" />
+          <Property Name="RiskMonitorPro" Type="bit" Nullable="false" />
+          <Property Name="StaffInvolvedId" Type="int" Nullable="false" />
+          <Property Name="TimeFrameId" Type="int" Nullable="false" />
+          <Property Name="OutcomeId" Type="int" Nullable="false" />
+          <Property Name="StageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InterventionTypeCategoryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterventionTypeCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kpi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PharmacistId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="WardId" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="MedicationChartsReviewed" Type="int" Nullable="false" />
+          <Property Name="MedicinesReconciliationsMedical" Type="int" Nullable="false" />
+          <Property Name="MedicinesReconciliationsSurgical" Type="int" Nullable="false" />
+          <Property Name="MedicinesReconciliationsOther" Type="int" Nullable="false" />
+          <Property Name="YellowCardsCompleted" Type="int" Nullable="false" />
+          <Property Name="YellowCardsCompletedAndCounselled" Type="int" Nullable="false" />
+          <Property Name="WarfarinCounselling" Type="int" Nullable="false" />
+          <Property Name="SelfMedication" Type="int" Nullable="false" />
+          <Property Name="DischargeOrderReview" Type="int" Nullable="false" />
+          <Property Name="CommunityLiaison" Type="int" Nullable="false" />
+          <Property Name="MedicineEducationTalks" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Outcomes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pharmacists">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StaffTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Stages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimeFrames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Wards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Contribution_ContributionType">
+          <End Role="ContributionType" Type="PharmacyInterventionsModel.Store.ContributionType" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContributionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="ContributionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Medications">
+          <End Role="Medications" Type="PharmacyInterventionsModel.Store.Medications" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medications">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="MedicationId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Medications1">
+          <End Role="Medications" Type="PharmacyInterventionsModel.Store.Medications" Multiplicity="0..1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medications">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="MedicationId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Outcomes">
+          <End Role="Outcomes" Type="PharmacyInterventionsModel.Store.Outcomes" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outcomes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="OutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Pharmacists">
+          <End Role="Pharmacists" Type="PharmacyInterventionsModel.Store.Pharmacists" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacists">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_StaffTypes">
+          <End Role="StaffTypes" Type="PharmacyInterventionsModel.Store.StaffTypes" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="StaffInvolvedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Stages">
+          <End Role="Stages" Type="PharmacyInterventionsModel.Store.Stages" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_TimeFrames">
+          <End Role="TimeFrames" Type="PharmacyInterventionsModel.Store.TimeFrames" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeFrames">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="TimeFrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Wards">
+          <End Role="Wards" Type="PharmacyInterventionsModel.Store.Wards" Multiplicity="1" />
+          <End Role="Contribution" Type="PharmacyInterventionsModel.Store.Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_InterventionGrade">
+          <End Role="InterventionGrade" Type="PharmacyInterventionsModel.Store.InterventionGrade" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionGrade">
+              <PropertyRef Name="Value" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="InterventionGradeValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_InterventionType">
+          <End Role="InterventionType" Type="PharmacyInterventionsModel.Store.InterventionType" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="InterventionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Outcomes">
+          <End Role="Outcomes" Type="PharmacyInterventionsModel.Store.Outcomes" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outcomes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="OutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Pharmacists">
+          <End Role="Pharmacists" Type="PharmacyInterventionsModel.Store.Pharmacists" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacists">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_StaffTypes">
+          <End Role="StaffTypes" Type="PharmacyInterventionsModel.Store.StaffTypes" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="StaffInvolvedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Stages">
+          <End Role="Stages" Type="PharmacyInterventionsModel.Store.Stages" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_TimeFrames">
+          <End Role="TimeFrames" Type="PharmacyInterventionsModel.Store.TimeFrames" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeFrames">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="TimeFrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Wards">
+          <End Role="Wards" Type="PharmacyInterventionsModel.Store.Wards" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions1_Medications">
+          <End Role="Medications" Type="PharmacyInterventionsModel.Store.Medications" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medications">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="MedicationId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions2_Medications">
+          <End Role="Medications" Type="PharmacyInterventionsModel.Store.Medications" Multiplicity="0..1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Store.Interventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medications">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="MedicationId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterventionType_InterventionTypeCategory1">
+          <End Role="InterventionTypeCategory" Type="PharmacyInterventionsModel.Store.InterventionTypeCategory" Multiplicity="1" />
+          <End Role="InterventionType" Type="PharmacyInterventionsModel.Store.InterventionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionTypeCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterventionType">
+              <PropertyRef Name="InterventionTypeCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kpi_Pharmacists">
+          <End Role="Pharmacists" Type="PharmacyInterventionsModel.Store.Pharmacists" Multiplicity="1" />
+          <End Role="Kpi" Type="PharmacyInterventionsModel.Store.Kpi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacists">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kpi">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kpi_Wards">
+          <End Role="Wards" Type="PharmacyInterventionsModel.Store.Wards" Multiplicity="1" />
+          <End Role="Kpi" Type="PharmacyInterventionsModel.Store.Kpi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kpi">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PharmacyInterventionsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PharmacyInterventionsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="InterventionGrades" EntityType="PharmacyInterventionsModel.InterventionGrade" />
+          <EntitySet Name="Interventions" EntityType="PharmacyInterventionsModel.Intervention" />
+          <EntitySet Name="InterventionTypes" EntityType="PharmacyInterventionsModel.InterventionType" />
+          <EntitySet Name="InterventionTypeCategories" EntityType="PharmacyInterventionsModel.InterventionTypeCategory" />
+          <EntitySet Name="Medications" EntityType="PharmacyInterventionsModel.Medication" />
+          <EntitySet Name="Pharmacists" EntityType="PharmacyInterventionsModel.Pharmacist" />
+          <EntitySet Name="Wards" EntityType="PharmacyInterventionsModel.Ward" />
+          <AssociationSet Name="FK_Interventions_InterventionGrade" Association="PharmacyInterventionsModel.FK_Interventions_InterventionGrade">
+            <End Role="InterventionGrade" EntitySet="InterventionGrades" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_InterventionType" Association="PharmacyInterventionsModel.FK_Interventions_InterventionType">
+            <End Role="InterventionType" EntitySet="InterventionTypes" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Pharmacists" Association="PharmacyInterventionsModel.FK_Interventions_Pharmacists">
+            <End Role="Pharmacists" EntitySet="Pharmacists" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Wards" Association="PharmacyInterventionsModel.FK_Interventions_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Interventions" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterventionType_InterventionTypeCategory1" Association="PharmacyInterventionsModel.FK_InterventionType_InterventionTypeCategory1">
+            <End Role="InterventionTypeCategory" EntitySet="InterventionTypeCategories" />
+            <End Role="InterventionType" EntitySet="InterventionTypes" />
+          </AssociationSet>
+          <EntitySet Name="Outcomes" EntityType="PharmacyInterventionsModel.Outcome" />
+          <EntitySet Name="StaffTypes" EntityType="PharmacyInterventionsModel.StaffType" />
+          <EntitySet Name="Stages" EntityType="PharmacyInterventionsModel.Stage" />
+          <EntitySet Name="TimeFrames" EntityType="PharmacyInterventionsModel.TimeFrame" />
+          <AssociationSet Name="FK_Interventions_Outcomes" Association="PharmacyInterventionsModel.FK_Interventions_Outcomes">
+            <End Role="Outcome" EntitySet="Outcomes" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_StaffTypes" Association="PharmacyInterventionsModel.FK_Interventions_StaffTypes">
+            <End Role="StaffType" EntitySet="StaffTypes" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_Stages" Association="PharmacyInterventionsModel.FK_Interventions_Stages">
+            <End Role="Stage" EntitySet="Stages" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions_TimeFrames" Association="PharmacyInterventionsModel.FK_Interventions_TimeFrames">
+            <End Role="TimeFrame" EntitySet="TimeFrames" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions1_Medications" Association="PharmacyInterventionsModel.FK_Interventions1_Medications">
+            <End Role="Medication" EntitySet="Medications" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interventions2_Medications" Association="PharmacyInterventionsModel.FK_Interventions2_Medications">
+            <End Role="Medication" EntitySet="Medications" />
+            <End Role="Intervention" EntitySet="Interventions" />
+          </AssociationSet>
+          <EntitySet Name="Contributions" EntityType="PharmacyInterventionsModel.Contribution" />
+          <EntitySet Name="ContributionTypes" EntityType="PharmacyInterventionsModel.ContributionType" />
+          <AssociationSet Name="FK_Contribution_ContributionType" Association="PharmacyInterventionsModel.FK_Contribution_ContributionType">
+            <End Role="ContributionType" EntitySet="ContributionTypes" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Medications" Association="PharmacyInterventionsModel.FK_Contribution_Medications">
+            <End Role="Medication" EntitySet="Medications" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Medications1" Association="PharmacyInterventionsModel.FK_Contribution_Medications1">
+            <End Role="Medication" EntitySet="Medications" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Outcomes" Association="PharmacyInterventionsModel.FK_Contribution_Outcomes">
+            <End Role="Outcome" EntitySet="Outcomes" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Pharmacists" Association="PharmacyInterventionsModel.FK_Contribution_Pharmacists">
+            <End Role="Pharmacist" EntitySet="Pharmacists" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_StaffTypes" Association="PharmacyInterventionsModel.FK_Contribution_StaffTypes">
+            <End Role="StaffType" EntitySet="StaffTypes" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Stages" Association="PharmacyInterventionsModel.FK_Contribution_Stages">
+            <End Role="Stage" EntitySet="Stages" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_TimeFrames" Association="PharmacyInterventionsModel.FK_Contribution_TimeFrames">
+            <End Role="TimeFrame" EntitySet="TimeFrames" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contribution_Wards" Association="PharmacyInterventionsModel.FK_Contribution_Wards">
+            <End Role="Ward" EntitySet="Wards" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <EntitySet Name="Kpis" EntityType="PharmacyInterventionsModel.Kpi" />
+          <AssociationSet Name="FK_Kpi_Wards" Association="PharmacyInterventionsModel.FK_Kpi_Wards">
+            <End Role="Ward" EntitySet="Wards" />
+            <End Role="Kpi" EntitySet="Kpis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kpi_Pharmacists" Association="PharmacyInterventionsModel.FK_Kpi_Pharmacists">
+            <End Role="Pharmacist" EntitySet="Pharmacists" />
+            <End Role="Kpi" EntitySet="Kpis" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="InterventionGrade">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Example" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_InterventionGrade" FromRole="InterventionGrade" ToRole="Interventions" />
+        </EntityType>
+        <EntityType Name="Intervention">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="WardId" Type="Int32" Nullable="false" />
+          <Property Name="PharmacistId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Details" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="InterventionGradeValue" Type="Int32" Nullable="false" />
+          <Property Name="DoseReceived" Type="Boolean" Nullable="false" />
+          <Property Name="InterventionTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InterventionGrade" Relationship="PharmacyInterventionsModel.FK_Interventions_InterventionGrade" FromRole="Interventions" ToRole="InterventionGrade" />
+          <NavigationProperty Name="InterventionType" Relationship="PharmacyInterventionsModel.FK_Interventions_InterventionType" FromRole="Interventions" ToRole="InterventionType" />
+          <NavigationProperty Name="Pharmacist" Relationship="PharmacyInterventionsModel.FK_Interventions_Pharmacists" FromRole="Interventions" ToRole="Pharmacists" />
+          <NavigationProperty Name="Ward" Relationship="PharmacyInterventionsModel.FK_Interventions_Wards" FromRole="Interventions" ToRole="Wards" />
+          <Property Type="Int32" Name="MedicationId1" Nullable="false" />
+          <Property Type="Int32" Name="MedicationId2" />
+          <Property Type="Boolean" Name="RiskMonitorPro" Nullable="false" />
+          <Property Type="Int32" Name="StaffInvolvedId" Nullable="false" />
+          <Property Type="Int32" Name="TimeFrameId" Nullable="false" />
+          <Property Type="Int32" Name="OutcomeId" Nullable="false" />
+          <Property Type="Int32" Name="StageId" Nullable="false" />
+          <NavigationProperty Name="Outcome" Relationship="PharmacyInterventionsModel.FK_Interventions_Outcomes" FromRole="Intervention" ToRole="Outcome" />
+          <NavigationProperty Name="StaffType" Relationship="PharmacyInterventionsModel.FK_Interventions_StaffTypes" FromRole="Intervention" ToRole="StaffType" />
+          <NavigationProperty Name="Stage" Relationship="PharmacyInterventionsModel.FK_Interventions_Stages" FromRole="Intervention" ToRole="Stage" />
+          <NavigationProperty Name="TimeFrame" Relationship="PharmacyInterventionsModel.FK_Interventions_TimeFrames" FromRole="Intervention" ToRole="TimeFrame" />
+          <NavigationProperty Name="Medication1" Relationship="PharmacyInterventionsModel.FK_Interventions1_Medications" FromRole="Intervention" ToRole="Medication" />
+          <NavigationProperty Name="Medication2" Relationship="PharmacyInterventionsModel.FK_Interventions2_Medications" FromRole="Intervention" ToRole="Medication" />
+          <Property Type="String" Name="Nhi" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InterventionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="InterventionTypeCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_InterventionType" FromRole="InterventionType" ToRole="Interventions" />
+          <NavigationProperty Name="InterventionTypeCategory" Relationship="PharmacyInterventionsModel.FK_InterventionType_InterventionTypeCategory1" FromRole="InterventionType" ToRole="InterventionTypeCategory" />
+        </EntityType>
+        <EntityType Name="InterventionTypeCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="InterventionTypes" Relationship="PharmacyInterventionsModel.FK_InterventionType_InterventionTypeCategory1" FromRole="InterventionTypeCategory" ToRole="InterventionType" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Interventions1" Relationship="PharmacyInterventionsModel.FK_Interventions1_Medications" FromRole="Medication" ToRole="Intervention" />
+          <NavigationProperty Name="Interventions11" Relationship="PharmacyInterventionsModel.FK_Interventions2_Medications" FromRole="Medication" ToRole="Intervention" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_Medications" FromRole="Medication" ToRole="Contribution" />
+          <NavigationProperty Name="Contributions1" Relationship="PharmacyInterventionsModel.FK_Contribution_Medications1" FromRole="Medication" ToRole="Contribution" />
+        </EntityType>
+        <EntityType Name="Pharmacist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_Pharmacists" FromRole="Pharmacists" ToRole="Interventions" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_Pharmacists" FromRole="Pharmacist" ToRole="Contribution" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <NavigationProperty Name="Kpis" Relationship="PharmacyInterventionsModel.FK_Kpi_Pharmacists" FromRole="Pharmacist" ToRole="Kpi" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_Wards" FromRole="Wards" ToRole="Interventions" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_Wards" FromRole="Ward" ToRole="Contribution" />
+          <NavigationProperty Name="Kpis" Relationship="PharmacyInterventionsModel.FK_Kpi_Wards" FromRole="Ward" ToRole="Kpi" />
+        </EntityType>
+        <Association Name="FK_Interventions_InterventionGrade">
+          <End Role="InterventionGrade" Type="PharmacyInterventionsModel.InterventionGrade" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionGrade">
+              <PropertyRef Name="Value" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="InterventionGradeValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_InterventionType">
+          <End Role="InterventionType" Type="PharmacyInterventionsModel.InterventionType" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="InterventionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Pharmacists">
+          <End Role="Pharmacists" Type="PharmacyInterventionsModel.Pharmacist" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacists">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Wards">
+          <End Role="Wards" Type="PharmacyInterventionsModel.Ward" Multiplicity="1" />
+          <End Role="Interventions" Type="PharmacyInterventionsModel.Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interventions">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterventionType_InterventionTypeCategory1">
+          <End Role="InterventionTypeCategory" Type="PharmacyInterventionsModel.InterventionTypeCategory" Multiplicity="1" />
+          <End Role="InterventionType" Type="PharmacyInterventionsModel.InterventionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterventionTypeCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterventionType">
+              <PropertyRef Name="InterventionTypeCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Outcome">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_Outcomes" FromRole="Outcome" ToRole="Intervention" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_Outcomes" FromRole="Outcome" ToRole="Contribution" />
+        </EntityType>
+        <EntityType Name="StaffType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_StaffTypes" FromRole="StaffType" ToRole="Intervention" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_StaffTypes" FromRole="StaffType" ToRole="Contribution" />
+        </EntityType>
+        <EntityType Name="Stage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_Stages" FromRole="Stage" ToRole="Intervention" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_Stages" FromRole="Stage" ToRole="Contribution" />
+        </EntityType>
+        <EntityType Name="TimeFrame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Interventions" Relationship="PharmacyInterventionsModel.FK_Interventions_TimeFrames" FromRole="TimeFrame" ToRole="Intervention" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_TimeFrames" FromRole="TimeFrame" ToRole="Contribution" />
+        </EntityType>
+        <Association Name="FK_Interventions_Outcomes">
+          <End Type="PharmacyInterventionsModel.Outcome" Role="Outcome" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outcome">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="OutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_StaffTypes">
+          <End Type="PharmacyInterventionsModel.StaffType" Role="StaffType" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="StaffInvolvedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_Stages">
+          <End Type="PharmacyInterventionsModel.Stage" Role="Stage" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions_TimeFrames">
+          <End Type="PharmacyInterventionsModel.TimeFrame" Role="TimeFrame" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeFrame">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="TimeFrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions1_Medications">
+          <End Type="PharmacyInterventionsModel.Medication" Role="Medication" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="MedicationId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interventions2_Medications">
+          <End Type="PharmacyInterventionsModel.Medication" Role="Medication" Multiplicity="0..1" />
+          <End Type="PharmacyInterventionsModel.Intervention" Role="Intervention" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Intervention">
+              <PropertyRef Name="MedicationId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nhi" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="WardId" Nullable="false" />
+          <Property Type="Int32" Name="PharmacistId" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="StaffInvolvedId" Nullable="false" />
+          <Property Type="Int32" Name="MedicationId1" Nullable="false" />
+          <Property Type="Int32" Name="MedicationId2" />
+          <Property Type="Int32" Name="OutcomeId" Nullable="false" />
+          <Property Type="Int32" Name="StageId" Nullable="false" />
+          <Property Type="Int32" Name="TimeFrameId" Nullable="false" />
+          <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ContributionTypeId" Nullable="false" />
+          <NavigationProperty Name="ContributionType" Relationship="PharmacyInterventionsModel.FK_Contribution_ContributionType" FromRole="Contribution" ToRole="ContributionType" />
+          <NavigationProperty Name="Medication1" Relationship="PharmacyInterventionsModel.FK_Contribution_Medications" FromRole="Contribution" ToRole="Medication" />
+          <NavigationProperty Name="Medication2" Relationship="PharmacyInterventionsModel.FK_Contribution_Medications1" FromRole="Contribution" ToRole="Medication" />
+          <NavigationProperty Name="Outcome" Relationship="PharmacyInterventionsModel.FK_Contribution_Outcomes" FromRole="Contribution" ToRole="Outcome" />
+          <NavigationProperty Name="Pharmacist" Relationship="PharmacyInterventionsModel.FK_Contribution_Pharmacists" FromRole="Contribution" ToRole="Pharmacist" />
+          <NavigationProperty Name="StaffType" Relationship="PharmacyInterventionsModel.FK_Contribution_StaffTypes" FromRole="Contribution" ToRole="StaffType" />
+          <NavigationProperty Name="Stage" Relationship="PharmacyInterventionsModel.FK_Contribution_Stages" FromRole="Contribution" ToRole="Stage" />
+          <NavigationProperty Name="TimeFrame" Relationship="PharmacyInterventionsModel.FK_Contribution_TimeFrames" FromRole="Contribution" ToRole="TimeFrame" />
+          <NavigationProperty Name="Ward" Relationship="PharmacyInterventionsModel.FK_Contribution_Wards" FromRole="Contribution" ToRole="Ward" />
+        </EntityType>
+        <EntityType Name="ContributionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Contributions" Relationship="PharmacyInterventionsModel.FK_Contribution_ContributionType" FromRole="ContributionType" ToRole="Contribution" />
+        </EntityType>
+        <Association Name="FK_Contribution_ContributionType">
+          <End Type="PharmacyInterventionsModel.ContributionType" Role="ContributionType" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContributionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="ContributionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Medications">
+          <End Type="PharmacyInterventionsModel.Medication" Role="Medication" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="MedicationId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Medications1">
+          <End Type="PharmacyInterventionsModel.Medication" Role="Medication" Multiplicity="0..1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="MedicationId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Outcomes">
+          <End Type="PharmacyInterventionsModel.Outcome" Role="Outcome" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outcome">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="OutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Pharmacists">
+          <End Type="PharmacyInterventionsModel.Pharmacist" Role="Pharmacist" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_StaffTypes">
+          <End Type="PharmacyInterventionsModel.StaffType" Role="StaffType" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="StaffInvolvedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Stages">
+          <End Type="PharmacyInterventionsModel.Stage" Role="Stage" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_TimeFrames">
+          <End Type="PharmacyInterventionsModel.TimeFrame" Role="TimeFrame" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeFrame">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="TimeFrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contribution_Wards">
+          <End Type="PharmacyInterventionsModel.Ward" Role="Ward" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Kpi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="WardId" Nullable="false" />
+          <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MedicationChartsReviewed" Nullable="false" />
+          <Property Type="Int32" Name="MedicinesReconciliationsMedical" Nullable="false" />
+          <Property Type="Int32" Name="MedicinesReconciliationsSurgical" Nullable="false" />
+          <Property Type="Int32" Name="MedicinesReconciliationsOther" Nullable="false" />
+          <Property Type="Int32" Name="YellowCardsCompleted" Nullable="false" />
+          <Property Type="Int32" Name="YellowCardsCompletedAndCounselled" Nullable="false" />
+          <Property Type="Int32" Name="WarfarinCounselling" Nullable="false" />
+          <Property Type="Int32" Name="SelfMedication" Nullable="false" />
+          <Property Type="Int32" Name="DischargeOrderReview" Nullable="false" />
+          <Property Type="Int32" Name="CommunityLiaison" Nullable="false" />
+          <Property Type="Int32" Name="MedicineEducationTalks" Nullable="false" />
+          <NavigationProperty Name="Ward" Relationship="PharmacyInterventionsModel.FK_Kpi_Wards" FromRole="Kpi" ToRole="Ward" />
+          <Property Type="Int32" Name="PharmacistId" Nullable="false" />
+          <NavigationProperty Name="Pharmacist" Relationship="PharmacyInterventionsModel.FK_Kpi_Pharmacists" FromRole="Kpi" ToRole="Pharmacist" />
+        </EntityType>
+        <Association Name="FK_Kpi_Wards">
+          <End Type="PharmacyInterventionsModel.Ward" Role="Ward" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Kpi" Role="Kpi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kpi">
+              <PropertyRef Name="WardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kpi_Pharmacists">
+          <End Type="PharmacyInterventionsModel.Pharmacist" Role="Pharmacist" Multiplicity="1" />
+          <End Type="PharmacyInterventionsModel.Kpi" Role="Kpi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kpi">
+              <PropertyRef Name="PharmacistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PharmacyInterventionsModelStoreContainer" CdmEntityContainer="PharmacyInterventionsEntities">
+          <EntitySetMapping Name="InterventionGrades">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.InterventionGrade">
+              <MappingFragment StoreEntitySet="InterventionGrade">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Example" ColumnName="Example" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interventions">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Intervention">
+              <MappingFragment StoreEntitySet="Interventions">
+                <ScalarProperty Name="Nhi" ColumnName="Nhi" />
+                <ScalarProperty Name="StageId" ColumnName="StageId" />
+                <ScalarProperty Name="OutcomeId" ColumnName="OutcomeId" />
+                <ScalarProperty Name="TimeFrameId" ColumnName="TimeFrameId" />
+                <ScalarProperty Name="StaffInvolvedId" ColumnName="StaffInvolvedId" />
+                <ScalarProperty Name="RiskMonitorPro" ColumnName="RiskMonitorPro" />
+                <ScalarProperty Name="MedicationId2" ColumnName="MedicationId2" />
+                <ScalarProperty Name="MedicationId1" ColumnName="MedicationId1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="PharmacistId" ColumnName="PharmacistId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="InterventionGradeValue" ColumnName="InterventionGradeValue" />
+                <ScalarProperty Name="DoseReceived" ColumnName="DoseReceived" />
+                <ScalarProperty Name="InterventionTypeId" ColumnName="InterventionTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterventionTypes">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.InterventionType">
+              <MappingFragment StoreEntitySet="InterventionType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InterventionTypeCategoryId" ColumnName="InterventionTypeCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterventionTypeCategories">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.InterventionTypeCategory">
+              <MappingFragment StoreEntitySet="InterventionTypeCategory">
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medications">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Medication">
+              <MappingFragment StoreEntitySet="Medications">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pharmacists">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Pharmacist">
+              <MappingFragment StoreEntitySet="Pharmacists">
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Ward">
+              <MappingFragment StoreEntitySet="Wards">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Outcomes">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Outcome">
+              <MappingFragment StoreEntitySet="Outcomes">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffTypes">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.StaffType">
+              <MappingFragment StoreEntitySet="StaffTypes">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stages">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Stage">
+              <MappingFragment StoreEntitySet="Stages">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeFrames">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.TimeFrame">
+              <MappingFragment StoreEntitySet="TimeFrames">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contributions">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Contribution">
+              <MappingFragment StoreEntitySet="Contribution">
+                <ScalarProperty Name="ContributionTypeId" ColumnName="ContributionTypeId" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="TimeFrameId" ColumnName="TimeFrameId" />
+                <ScalarProperty Name="StageId" ColumnName="StageId" />
+                <ScalarProperty Name="OutcomeId" ColumnName="OutcomeId" />
+                <ScalarProperty Name="MedicationId2" ColumnName="MedicationId2" />
+                <ScalarProperty Name="MedicationId1" ColumnName="MedicationId1" />
+                <ScalarProperty Name="StaffInvolvedId" ColumnName="StaffInvolvedId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PharmacistId" ColumnName="PharmacistId" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Nhi" ColumnName="Nhi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContributionTypes">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.ContributionType">
+              <MappingFragment StoreEntitySet="ContributionType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kpis">
+            <EntityTypeMapping TypeName="PharmacyInterventionsModel.Kpi">
+              <MappingFragment StoreEntitySet="Kpi">
+                <ScalarProperty Name="PharmacistId" ColumnName="PharmacistId" />
+                <ScalarProperty Name="MedicineEducationTalks" ColumnName="MedicineEducationTalks" />
+                <ScalarProperty Name="CommunityLiaison" ColumnName="CommunityLiaison" />
+                <ScalarProperty Name="DischargeOrderReview" ColumnName="DischargeOrderReview" />
+                <ScalarProperty Name="SelfMedication" ColumnName="SelfMedication" />
+                <ScalarProperty Name="WarfarinCounselling" ColumnName="WarfarinCounselling" />
+                <ScalarProperty Name="YellowCardsCompletedAndCounselled" ColumnName="YellowCardsCompletedAndCounselled" />
+                <ScalarProperty Name="YellowCardsCompleted" ColumnName="YellowCardsCompleted" />
+                <ScalarProperty Name="MedicinesReconciliationsOther" ColumnName="MedicinesReconciliationsOther" />
+                <ScalarProperty Name="MedicinesReconciliationsSurgical" ColumnName="MedicinesReconciliationsSurgical" />
+                <ScalarProperty Name="MedicinesReconciliationsMedical" ColumnName="MedicinesReconciliationsMedical" />
+                <ScalarProperty Name="MedicationChartsReviewed" ColumnName="MedicationChartsReviewed" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -41,3 +41,14 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+PharmacyInterventions/PI.Business.Tests/bin/
+PharmacyInterventions/PI.Business.Tests/obj/
+PharmacyInterventions/PI.Business/bin/
+PharmacyInterventions/PI.Business/obj/
+PharmacyInterventions/PI.Data/bin/
+PharmacyInterventions/PI.Data/obj/
+PharmacyInterventions/PI.Models/bin/
+PharmacyInterventions/PI.Models/obj/
+PharmacyInterventions/PI.Web/bin/
+PharmacyInterventions/PI.Web/obj/

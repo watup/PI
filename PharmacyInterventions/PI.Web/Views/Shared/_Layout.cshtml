@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-1.10.3.custom.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.ui.datepicker-en-NZ.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="~/Scripts/jqueryui-editable.js"></script>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+        
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/Main.css")"/>
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/jquery.dataTables.css")"/>
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/jquery.dataTables_themeroller.css")"/>
+        @*<link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/blitzer/jquery-ui-1.10.3.custom.css")"/>*@
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/custom-theme/jquery-ui-1.10.3.custom.css")"/>
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/jqueryui-editable.css")"/>
+        
+
+
+    </head>
+    <body>
+        @Html.Partial("_Header")
+        <div id="body">
+            @RenderBody()
+        </div>
+        @RenderSection("scripts", required: false)
+
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                $('.home-page-link').on('click', function () {
+                    window.location = '@Url.Action("Index","Home")';
+                });
+
+            });
+
+        </script>
+    </body>
+</html>

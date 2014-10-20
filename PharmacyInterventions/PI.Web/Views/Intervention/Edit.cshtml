@@ -1,0 +1,328 @@
+﻿@using System.Web.Configuration
+@using PI.Web
+@using PI.Web.Lookups
+@model PI.Web.Models.InterventionViewModel
+
+@{
+    Layout = null;
+}
+
+
+        <div>
+            @if (Model.Response != null && Model.Response.UpdatedIntervention != null)
+            {
+                <div class='ui-state-highlight ui-corner-all'>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin-right:.3em;"></span>
+                    <span>Intervention for <b>@Model.Response.UpdatedIntervention.Nhi</b> at @Model.Response.UpdatedIntervention.Date.ToString("dd/MM/yyyy HH:mm") was @(Model.Response.WasNew ? "created" : "edited").</span>
+                </div>
+                if (!Model.Response.CreatingAnother)
+                {
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog make-me-a-button" title="Close this dialog">Close this window</a>
+                    </div>
+                }
+            }
+        </div>
+        @if (Model.Response == null || Model.Response.UpdatedIntervention == null || Model.Response.CreatingAnother)
+        {
+         
+            <div>
+                @using (Html.BeginForm("Edit", "Intervention", FormMethod.Post))
+                {
+                    @Html.HiddenFor(i => i.Intervention.Id)
+                    @Html.Hidden("SubmissionType", (int)SubmissionType.Save)
+                    <div>
+                        @{
+                    if (!Model.IsValid)
+                    {
+                                <div class="ui-widget">
+                                    <div class="ui-state-error ui-corner-all">
+                                        @Html.ValidationSummary(false)
+                                    </div>
+                                </div>
+                    }
+                        }
+                    
+                        <div class="dialog-column dialog-column1">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.Nhi)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(i => i.Intervention.Nhi, new { @class = "nhi-entry" })
+                                <span class="ui-widget nhi-validation-error has-tool-tip" title="You can continue, but NHI number is invalid" >
+                                    <span class="ui-state-error ui-corner-all">Invalid NHI</span>
+                                </span>
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.Date)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Intervention.Date", Model.Intervention.Date.ToString("dd/MM/yyyy HH:mm"))
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.WardId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.WardId, Model.Wards, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.PharmacistId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.PharmacistId, Model.Pharmacists, "Select One")
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-column dialog-column2">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.MedicationId1)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.MedicationId1, Model.Medications, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.MedicationId2)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.MedicationId2, Model.Medications, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Intervention Type Category")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.InterventionTypeCategoryId, Model.InterventionTypeCategories, new { @class = "intervention-type-categories" })
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.InterventionTypeId)
+                            </div>
+                            <div class="editor-field">
+                                @foreach (var categoryId in Model.InterventionTypeCategories.Select(i => int.Parse(i.Value)))
+                                {
+                                    int currentCategoryId = categoryId;
+                    
+                                    @Html.DropDownList("InterventionTypeCategory" + currentCategoryId, new SelectList(Model.InterventionTypes.Where(it => it.InterventionTypeCategoryId == currentCategoryId), "Id", "Name"), new { @class = "intervention-type-dropdown", style = "display: none;" })
+                    
+                                }
+                    
+                                @Html.DropDownListFor(i => i.Intervention.InterventionTypeId, new SelectList(Model.InterventionTypes.Where(it => it.InterventionTypeCategoryId == Model.InterventionTypeCategoryId), "Id", "Name"), new { @class = "intervention-id-type-dropdown" })
+
+                            </div>
+                
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.OutcomeId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.OutcomeId, Model.Outcomes, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.StageId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.StageId, Model.Stages, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.StaffInvolvedId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.StaffInvolvedId, Model.StaffTypes, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.TimeFrameId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Intervention.TimeFrameId, Model.TimeFrames, "Select One")
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-column dialog-column3">
+                        
+                        
+                            <div class="editor-label">
+                                <span class="editor-field">
+                                    @Html.CheckBoxFor(i => i.Intervention.DoseReceived)
+                                </span>
+                                @Html.LabelFor(i => i.Intervention.DoseReceived)
+                            </div>
+
+                            <div class="grade-container">
+                                <div class="editor-label ">
+                                    <span class="show-grade-info-trigger">
+                                        @Html.LabelFor(i => i.Intervention.InterventionGradeValue)
+                                        <span class="ui-icon ui-icon-info "></span>
+                                    </span>
+                                    <span class="editor-field">
+                                        @Html.HiddenFor(i => i.Intervention.InterventionGradeValue)
+                    
+                                        @foreach (var grade in Model.InterventionGrades)
+                                        {
+                                            var activeButton = grade.Value == Model.Intervention.InterventionGradeValue ? "grade-setter-active" : "";
+                                            <input type="button" value="@grade.Value" title="@grade.Description" class="grade-setter @activeButton" data-gradeDescription="@grade.Description" data-gradeExample="@grade.Example"/>
+                                        }
+                                    </span>
+                                
+                                </div>
+                                <div class="grade-description">
+                                    No grade selected
+                                </div>
+                                <div class="grade-info ui-corner-all ui-widget-content" style="display: none;">
+                                    Select the grade based on actual outcome. If patient didn't get a dose then grade on most likely outcome if patient had received dose.<br/>
+                                    <br/>
+                                    Examples:<br/><br/>
+                                    @foreach (var grade in Model.InterventionGrades)
+                                    {
+                                        <div class="grade-example"><span class="grade-example-title">Grade @grade.Value: </span>@grade.Example</div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Intervention.Details)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(i => i.Intervention.Details, new { @class = "intervention-details-input" })
+                            </div>
+
+                        </div>
+                    
+
+
+
+                
+
+
+                    </div>
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog" title="Close this dialog">Close</a>
+                        @{
+                                    int saveType = (int)SubmissionType.Save;
+                                    int saveAndAnotherType = (int)SubmissionType.SaveAndAnotherForPatient;
+                        }
+                        <input type="button" id="save" name="save" value ="Save"  onclick="SubmitForm(this, @saveType)" class="make-me-a-button" />
+                        <input type="button" id="saveAndAnother" name="saveAndAnother" value ="Save & another for NHI" title="Save this record and create another for the same patient" onclick="SubmitForm(this, @saveAndAnotherType)" class="make-me-a-button has-tool-tip" />
+                    
+                    </div>
+                }
+            </div>
+       
+        }
+
+        <script type="text/javascript">
+
+            function SubmitForm(btnClicked, submissionType) {
+                $('#SubmissionType').val(submissionType);
+                DoAjaxPost(btnClicked);
+            }
+
+            // sets the current grade description based on what button has the active style
+            function SetGradeDescription(gradeContainer) {
+                //console.log($(gradeContainer).html());
+                //console.log($(this).html());
+                var activeButton = $(gradeContainer).find('.grade-setter-active');
+                console.log($(activeButton).html());
+                var description = $(activeButton).data('gradedescription');
+                console.log(description);
+                $('.grade-description').html(description);
+            }
+
+            $(document).ready(function () {
+
+                TurnJunkIntoButtons();
+
+                GenerateToolTips();
+                
+                $('.close-dialog').on('click', function (event) {
+                    $(this).closest('.ui-dialog-content').dialog('close');
+                    event.preventDefault();
+                    var $lmTable = $("#myDataTable").dataTable({ bRetrieve: true });
+                    $lmTable.fnDraw();
+                });
+
+                // change the intervention grade when button clicked
+                $('.grade-setter').on('click', function() {
+                    //console.log($(this).attr('value'));
+                    $('#Intervention_InterventionGradeValue').val($(this).attr('value'));
+                    $('.grade-setter-active').removeClass('grade-setter-active');
+                    $(this).addClass('grade-setter-active');
+                    var gradeContainer = $(this).closest('.grade-container').html();
+                    SetGradeDescription(gradeContainer);
+                });
+
+                // when the intervention type category changes then change the available intervention types
+                $('.intervention-type-categories').change(function () {
+                    PopulateInterventionTypeDropDown();
+                });
+
+                // on load populate the type drop down
+                //PopulateInterventionTypeDropDown();
+
+                // on load set the grade description (for edit - does nothing on create)
+                SetGradeDescription($('.grade-container'));
+
+                // add datetime picker
+                $('#Intervention_Date').datetimepicker();
+                
+                
+                $('.show-grade-info-trigger').on('mouseover', function (event) {
+                    var mouseX = $(this).position().left; // event.pageX;
+                    var mouseY = $(this).position().top; //event.pageY;
+                    var popupWidth = $('.grade-info').width();
+                    console.log(popupWidth);
+                    mouseX = mouseX - popupWidth;
+                    $('.grade-info').css({ 'top': mouseY, 'left': mouseX }).show(); //.css('display', 'block');
+
+                });
+                $('.show-grade-info-trigger').on('mouseout', function (event) {
+                    $('.grade-info').hide();
+
+                });
+
+
+                $(".nhi-entry").focusout(function () {
+                    ValidateNhiNumber();
+                });
+                ValidateNhiNumber();
+                
+            });
+
+            function ValidateNhiNumber() {
+                $('.nhi-validation-error').hide();
+
+                var nhiNumber = $(".nhi-entry").val();
+
+                if (nhiNumber && nhiNumber != "") {
+                    $.ajax({
+                        type: "GET",
+                        url: "@Url.Action("ValidNhi","Ajax")",
+                            data: { nhi: nhiNumber },
+                            error: function (xhr, status, error) {
+                                //do something about the error  
+                                alert("Error while attempting to validate nhi: " + error);
+                            },
+                            success: function (response) {
+                                if (!response.valid) {
+                                    $('.nhi-validation-error').css('display', 'inline-block');
+                                }
+                            }
+                        });
+                    }
+            }
+
+            // populates the intervention type dropdown based on the currently selected intervention type category
+            function PopulateInterventionTypeDropDown() {
+                $('.intervention-type-dropdown').hide();
+                var currentCategoryId = $('.intervention-type-categories').val();
+                //console.log(currentCategoryId);
+                //$('#InterventionTypeCategory' + currentCategoryId).show();
+
+                $('.intervention-id-type-dropdown').html($('#InterventionTypeCategory' + currentCategoryId).html());
+            }
+
+
+
+        </script>
+

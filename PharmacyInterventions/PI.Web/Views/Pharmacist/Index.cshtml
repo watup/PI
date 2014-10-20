@@ -1,0 +1,15 @@
+﻿@model PI.Web.Models.PharmacistIndexViewModel
+@{
+    ViewBag.Title = "Pharmacists";
+}
+
+<div class="text-page">
+    <h2>Pharmacists</h2>
+
+    From this screen you can update the pharmacists available to the application.<br/><br/>
+    Click the name of a pharmacist to change it.  Drag and drop pharmacists to change the display order.  Use the 'active/inactive' buttons to include or remove pharmacists from drop down lists.  
+
+    <div class="pharmacists-list form-contents">
+        @Html.Partial("_PharmacistList", Model)
+    </div>
+</div>

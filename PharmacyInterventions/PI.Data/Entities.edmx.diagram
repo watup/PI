@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0bf7855fec9f4a77bf7250a9d41f9166" Name="Diagram1">
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.InterventionGrade" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Intervention" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.InterventionType" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.InterventionTypeCategory" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Medication" Width="1.5" PointX="8.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Pharmacist" Width="1.5" PointX="8.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Ward" Width="1.5" PointX="11" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_InterventionGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_InterventionType" ManuallyRouted="false" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_Pharmacists" ManuallyRouted="false" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_Wards" ManuallyRouted="false" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_InterventionType_InterventionTypeCategory1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Outcome" Width="1.5" PointX="11" PointY="5.75" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.StaffType" Width="1.5" PointX="10.75" PointY="0.625" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Stage" Width="1.5" PointX="8.75" PointY="4.625" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.TimeFrame" Width="1.5" PointX="10.5" PointY="3.125" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_Outcomes" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_StaffTypes" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_Stages" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions_TimeFrames" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions1_Medications" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Interventions2_Medications" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Contribution" Width="1.5" PointX="13.375" PointY="0.875" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.ContributionType" Width="1.5" PointX="15.125" PointY="1.25" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_ContributionType" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Medications" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Medications1" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Outcomes" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Pharmacists" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_StaffTypes" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Stages" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_TimeFrames" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Contribution_Wards" />
+        <EntityTypeShape EntityType="PharmacyInterventionsModel.Kpi" Width="1.5" PointX="3.125" PointY="8.625" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Kpi_Wards" />
+        <AssociationConnector Association="PharmacyInterventionsModel.FK_Kpi_Pharmacists" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

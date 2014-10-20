@@ -1,0 +1,16 @@
+﻿@model PI.Web.Models.WardIndexViewModel
+@{
+    ViewBag.Title = "Wards";
+}
+
+<div class="text-page">
+    <h2>Wards</h2>
+
+    From this screen you can update the wards available to the application.<br/><br/>
+    Click the name of a ward to change it.  Drag and drop wards to change the display order.  Use the 'active/inactive' buttons to include or remove wards from drop down lists.  
+
+    <div class="wards-list form-contents">
+        @Html.Partial("_WardList",Model)
+    </div>
+    
+</div>

@@ -1,0 +1,195 @@
+﻿@using System.Web.Configuration
+@using PI.Web
+@using PI.Web.Lookups
+@model PI.Web.Models.KpiViewModel
+
+@{
+    //Layout = "../Shared/PopupLayout.cshtml";
+    Layout = null;
+}
+
+
+        <div>
+            @if (Model.Response != null && Model.Response.UpdatedKpi != null)
+            {
+                <div class='ui-state-highlight ui-corner-all'>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin-right:.3em;"></span>
+                    <span>KPI for <b>@Model.Response.UpdatedKpi.Pharmacist.Name</b> at @Model.Response.UpdatedKpi.Date.ToString("dd/MM/yyyy HH:mm") was @(Model.Response.WasNew ? "created" : "edited").</span>
+                </div>
+                if (!Model.Response.CreatingAnother)
+                {
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog make-me-a-button" title="Close this dialog">Close this window</a>
+                    </div>
+                }
+            }
+        </div>
+        @if (Model.Response == null || Model.Response.UpdatedKpi == null || Model.Response.CreatingAnother)
+        {
+         
+            <div>
+                @using (Html.BeginForm("Edit", "Kpi", FormMethod.Post))
+                {
+                    @Html.HiddenFor(i => i.Kpi.Id)
+                    @Html.Hidden("SubmissionType", (int)SubmissionType.Save)
+                    <div>
+                        @{
+                    if (!Model.IsValid)
+                    {
+                                <div class="ui-widget">
+                                    <div class="ui-state-error ui-corner-all">
+                                        @Html.ValidationSummary(false)
+                                    </div>
+                                </div>
+                    }
+                        }
+                    
+                        <div class="dialog-column dialog-column1 dialog-column-big">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.PharmacistId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Kpi.PharmacistId, Model.Pharmacists, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.WardId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(i => i.Kpi.WardId, Model.Wards, "Select One")
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.Date)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.Date", Model.Kpi.Date.ToString("dd/MM/yyyy HH:mm"))
+                            </div>
+                            
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.Notes)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(i => i.Kpi.Notes, new { @class = "kpi-details-input" })
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-column dialog-column2-big">
+                        
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.MedicationChartsReviewed)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.MedicationChartsReviewed",Model.Kpi.MedicationChartsReviewed)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.MedicinesReconciliationsMedical)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.MedicinesReconciliationsMedical",Model.Kpi.MedicinesReconciliationsMedical)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.MedicinesReconciliationsSurgical)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.MedicinesReconciliationsSurgical",Model.Kpi.MedicinesReconciliationsSurgical)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.MedicinesReconciliationsOther)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.MedicinesReconciliationsOther",Model.Kpi.MedicinesReconciliationsOther)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.YellowCardsCompleted)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.YellowCardsCompleted",Model.Kpi.YellowCardsCompleted)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.YellowCardsCompletedAndCounselled)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.YellowCardsCompletedAndCounselled",Model.Kpi.YellowCardsCompletedAndCounselled)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.WarfarinCounselling)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.WarfarinCounselling",Model.Kpi.WarfarinCounselling)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.SelfMedication)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.SelfMedication",Model.Kpi.SelfMedication)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.DischargeOrderReview)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.DischargeOrderReview",Model.Kpi.DischargeOrderReview)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.CommunityLiaison)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.CommunityLiaison",Model.Kpi.CommunityLiaison)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(i => i.Kpi.MedicineEducationTalks)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Kpi.MedicineEducationTalks",Model.Kpi.MedicineEducationTalks)
+                            </div>
+
+                        </div>
+
+                    
+
+                    </div>
+                    <div class="dialog-buttons">
+                        <a href="" class="close-dialog" title="Close this dialog">Close</a>
+                        @{
+                                    int saveType = (int)SubmissionType.Save;
+                                    int saveAndAnotherType = (int)SubmissionType.SaveAndAnotherForPharmacist;
+                        }
+                        <input type="button" id="save" name="save" value ="Save"  onclick="SubmitForm(this, @saveType)" class="make-me-a-button" />
+                        <input type="button" id="saveAndAnother" name="saveAndAnother" value ="Save & another for Pharmacist" title="Save this record and create another for the same pharmacist" onclick="SubmitForm(this, @saveAndAnotherType)" class="make-me-a-button has-tool-tip" />
+                    
+                    </div>
+                }
+            </div>
+       
+        }
+
+        <script type="text/javascript">
+
+            function SubmitForm(btnClicked, submissionType) {
+                $('#SubmissionType').val(submissionType);
+                DoAjaxPost(btnClicked);
+            }
+            
+            $(document).ready(function () {
+
+                TurnJunkIntoButtons();
+
+                GenerateToolTips();
+                
+                $('.close-dialog').on('click', function (event) {
+                    $(this).closest('.ui-dialog-content').dialog('close');
+                    event.preventDefault();
+                    var $lmTable = $("#myDataTable").dataTable({ bRetrieve: true });
+                    $lmTable.fnDraw();
+                });
+                
+                // add datetime picker
+                $('#Kpi_Date').datetimepicker();
+                
+            });
+            
+
+
+
+        </script>
+

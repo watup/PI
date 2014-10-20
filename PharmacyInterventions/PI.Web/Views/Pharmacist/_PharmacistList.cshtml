@@ -1,0 +1,136 @@
+﻿@model PI.Web.Models.PharmacistIndexViewModel
+
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Index", "Pharmacist", FormMethod.Post))
+{
+
+    <div class="create-pharmacist">
+        @{
+            if (Model.NewPharmacist != null)
+            {
+                <div class="ui-widget">
+                    <div class="ui-state-error ui-corner-all">
+                        @Html.ValidationSummary(false)
+                    </div>
+                </div>
+            }
+        }
+        Create a new pharmacist:
+        @Html.TextBoxFor(m => m.NewPharmacist.Name)
+        <input type="button" name="create" value="Create pharmacist" class="make-me-a-button"  onclick="DoAjaxPost(this)"/>
+    </div>
+    <div class="pharmacist-list">
+        <span>Pharmacist List</span>
+        <ul id="pharmacistList" class="sortable ui-corner-all">
+            @foreach (var pharmacist in Model.Pharmacists.OrderBy(w => w.DisplayOrder))
+            {
+                var label = pharmacist.IsActive ? "active" : "inactive";
+                <li data-PharmacistId="@pharmacist.Id" class=" ui-corner-all">
+                    <a href="#" data-type="text" data-pk="@pharmacist.Id" class="pharmacist-name">@pharmacist.Name</a>
+                    <span class="pharmacist-isactive">@Html.CheckBox("isactive", pharmacist.IsActive, new {@class = "make-me-a-button ", id = "check" + pharmacist.Id})<label class="active-toggle" for="check@(pharmacist.Id)">@label</label></span>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.active-toggle').on('click', function () {
+            if ($(this).children('span').text() == 'inactive') {
+                $(this).children('span').text('active');
+            } else {
+                $(this).children('span').text('inactive');
+            }
+            var pharmacistId = $(this).closest('li').data('pharmacistid');
+            UpdatePharmacist(pharmacistId);
+        });
+
+        $('#pharmacistList').sortable({
+            update: function (event, ui) {
+                UpdatePharmacist(ui.item.data('pharmacistid'), ui.item.index());
+            }
+        });
+
+        $('.pharmacist-name').editable({
+            unsavedclass: "",
+            success: function (response, newValue) {
+                var pharmacistItem = $(this).closest('li');
+                var pharmacistId = $(pharmacistItem).data('pharmacistid');
+
+                UpdatePharmacist(pharmacistId, null, newValue);
+
+            },
+            validate: function (value) {
+                if ($.trim(value) == '') {
+                    return 'This field is required';
+                }
+                if (value.length > 50) {
+                    return 'The name is too long';
+                }
+            }
+        });
+    });
+
+    function UpdatePharmacist(pharmacistId, newIndex, newName) {
+        // get pharmacist details out of the htmlllll
+        var domPharmacist = $('li[data-PharmacistId=' + pharmacistId + ']');
+        var pharmacistName = $(domPharmacist).children('.pharmacist-name').text();
+        if (newName)
+            pharmacistName = newName;
+        // this is a bit stupid, but checkbox does not seem to be changing value?
+        var isActive = $(domPharmacist).children('.pharmacist-isactive').find('.ui-button-text').text() == 'active' ? true : false;
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("UpdatePharmacist")",
+            data: { pharmacistId: pharmacistId, pharmacistName: pharmacistName, isActive: isActive, newIndex: newIndex },
+            error: function (xhr, status, error) {
+                //do something about the error  
+                // TODO make me better please!
+                alert("Attempting to update pharmacist: " + error);
+            },
+            success: function (response) {
+                if (!response.success) {
+                    // todo display the problem
+                    alert('there was a problem and kelvin needs to make this better');
+                }
+            }
+        });
+    }
+
+    // method for submitting form contained within dialog window
+    // and placing resulting view back into dialog window
+    function DoAjaxPost(btnClicked) {
+        var $form = $(btnClicked).parents('form');
+        var $dialog = $(btnClicked).parents('.dialog-contents, .form-contents');
+        console.log($dialog.html());
+
+        $.ajax({
+            type: "POST",
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            error: function (xhr, status, error) {
+                //do something about the error  
+                alert(error);
+            },
+            success: function (response) {
+                // put the response into the dialog
+                $dialog.html(response);
+                TurnJunkIntoButtons();
+            }
+        });
+
+        return false; // if it's a link to prevent post
+
+    }
+
+</script>

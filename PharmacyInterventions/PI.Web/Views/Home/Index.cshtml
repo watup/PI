@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container">
+    <style>
+
+    </style>
+    <div class="imageContainer">
+        <img src="@Url.Content("~/Images/PieSlicesTransparent.png")" id="fullPie" />
+        <img src="@Url.Content("~/Images/PieSlice1.png")" id="pieSlice1" />
+        <img src="@Url.Content("~/Images/PieSlice2.png")" id="pieSlice2" />
+        <img src="@Url.Content("~/Images/PieSlice3.png")" id="pieSlice3" />
+    </div>
+    <div class="nameContainer">
+        <div class="name">pi</div>
+        <div class="nameFull1">Pharmacy</div>
+        <div class="nameFull2">Interventions</div>
+    </div>
+    <div class="sectionContainer dataSectionContainer" data-sliceno="2">
+        <div class="sectionName dataSectionName">DATA</div>
+        <div class="sectionDivider">&nbsp;</div>
+        <div class="sectionLinks">
+            <div class="sectionLink"><a href="@Url.Action("Index","Intervention")">interventions</a></div>
+            <div class="sectionLink"><a href="@Url.Action("Index","Contribution")">contributions</a></div>
+            <div class="sectionLink"><a href="@Url.Action("Index","Kpi")">KPIs</a></div>
+        </div>
+    </div>
+    <div class="sectionContainer helpSectionContainer" data-sliceno="1">
+        <div class="sectionName dataSectionName">HELP</div>
+        <div class="sectionDivider">&nbsp;</div>
+        <div class="sectionLinks">
+            <div class="sectionLink"><a href="@Url.Action("About","Home")">about</a></div>
+            <div class="sectionLink"><a href="@Url.Action("Help","Home")">help</a></div>
+        </div>
+    </div>
+    <div class="sectionContainer adminSectionContainer" data-sliceno="3">
+        <div class="sectionName adminSectionName">ADMIN</div>
+        <div class="sectionDivider">&nbsp;</div>
+        <div class="sectionLinks">
+            <div class="sectionLink"><a href="@Url.Action("Index","Pharmacist")">users</a></div>
+            <div class="sectionLink"><a href="@Url.Action("Index","Ward")">wards</a></div>
+            <div class="sectionLink">reports</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.sectionContainer').mouseenter(function () {
+            var sliceNo = $(this).data('sliceno');
+            var id = '#pieSlice' + sliceNo;
+            $(id).fadeIn(500);
+        });
+        $('.sectionContainer').mouseleave(function () {
+            var sliceNo = $(this).data('sliceno');
+            var id = '#pieSlice' + sliceNo;
+            $(id).fadeOut(500);
+        });
+
+    });
+
+</script>
